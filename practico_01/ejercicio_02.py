@@ -7,12 +7,7 @@ def maximo_encadenado(a: float, b: float, c: float) -> float:
     Restricción: Utilizar UNICAMENTE tres IFs y comparaciones encadenadas.
     Referencia: https://docs.python.org/3/reference/expressions.html#comparisons
     """
-    if b < a > c:
-        return a
-    if a < b > c:
-        return b
-    if a < c > b:
-        return c
+    pass # Completar
 
 
 # NO MODIFICAR - INICIO
@@ -29,7 +24,7 @@ def maximo_cuadruple(a: float, b: float, c: float, d: float) -> float:
     """Re-escribir para que tome 4 parámetros, utilizar la función max.
 
     Referencia: https://docs.python.org/3/library/functions.html#max"""
-    return max(a, b, c, d)
+    pass # Completar
 
 
 # NO MODIFICAR - INICIO
@@ -47,7 +42,7 @@ def maximo_arbitrario(*args) -> float:
     """Re-escribir para que tome una cantidad arbitraria de parámetros.
     Referencia: https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists
     """
-    return max(args)
+    pass # Completar
 
 
 # NO MODIFICAR - INICIO
@@ -61,18 +56,9 @@ assert maximo_arbitrario(24, 9, 18, 30) == 30
 ###############################################################################
 
 
-def maximo_recursivo(*args):
+def maximo_recursivo(*args) -> float:
     """Re-Escribir de forma recursiva."""
-    if len(args) == 2:  # --la primer vez que cuple condicion frena la
-        a, b = args  # recursividad
-        return a if a >= b else b
-    primero, *resto = args    # se guarda el primer elemento
-    # --busca el mayor en resto de forma recursiva
-    resto = maximo_recursivo(*resto)
-    # --se activa con el mayor elemento de la
-    return maximo_recursivo(primero, resto)
-    # anterior recursividad y el elemto almacenado
-    # en su iteracion
+    pass # Completar
 
 
 # NO MODIFICAR - INICIO

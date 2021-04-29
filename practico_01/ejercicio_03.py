@@ -3,8 +3,7 @@
 from typing import Union
 
 
-def operacion_basica(a: float, b: float,
-                     multiplicar: bool) -> Union[float, str]:
+def operacion_basica(a: float, b: float, multiplicar: bool) -> Union[float, str]:
     """Toma dos números (a, b) y un booleano (multiplicar):
         - Si multiplicar es True: devuelve la multiplicación entre a y b.
         - Si multiplicar es False: devuelve la division entre a y b.
@@ -14,16 +13,7 @@ def operacion_basica(a: float, b: float,
         - Utilizar un único return.
         - No utilizar AND ni OR.
     """
-
-    if b == 0:
-        if not multiplicar:
-            resultado = "Operación no válida"
-    if multiplicar:
-        resultado = a * b
-    elif b != 0:
-        resultado = a / b
-
-    return resultado
+    pass # Completar
 
 
 # NO MODIFICAR - INICIO
@@ -41,17 +31,9 @@ assert operacion_basica(1, 0, False) == "Operación no válida"
 ###############################################################################
 
 
-def operacion_multiple(
-        a: float, b: float, multiplicar: bool) -> Union[float, str]:
+def operacion_multiple(a: float, b: float, multiplicar: bool) -> Union[float, str]:
     """Re-Escribir utilizando tres returns."""
-
-    if b == 0:
-        if not multiplicar:
-            return "Operación no válida"
-    if multiplicar:
-        return a * b
-
-    return a / b
+    pass # Completar
 
 
 # NO MODIFICAR - INICIO
