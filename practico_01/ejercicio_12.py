@@ -19,7 +19,10 @@ def combinar_basico(nombres: List[str], precios: List[float]) -> Tuple[Any]:
 
     Restricción: Resolver utilizando un bucle for.
     """
-    pass # Completar
+    lista_final = []
+    for i in range(len(nombres)):
+        lista_final.append((nombres[i], precios[i]))
+    return tuple(lista_final)
 
 
 # NO MODIFICAR - INICIO
@@ -39,21 +42,33 @@ assert combinar_basico(nombre_articulos, precio_articulos) == respuesta
 id_articulos = [6852, 1459, 3578]
 
 
-def combinar_enumerate(nombres: List[str], precios: List[float], ids: List[int]) -> Tuple[Any]:
+def combinar_enumerate(
+        nombres: List[str],
+        precios: List[float],
+        ids: List[int]) -> Tuple[Any]:
     """Re-Escribir utilizando enumerate y agregando un nuevo componente.
     Referencia: https://docs.python.org/3/library/functions.html#enumerate
     """
-    pass # Completar
+    articulos = []
+    for indice, nombre_valor in enumerate(zip(nombres, precios)):
+        articulos.append(nombre_valor + (ids[indice],))
+    return tuple(articulos)
+
+    # return tuple( (nombre, precio, ide) for ide,(nombre,precio) in
+    # enumerate(zip(nombres,precios),start=ids[0])  )
 
 
 # NO MODIFICAR - INICIO
 respuesta = (
     ("ventana", 100.48, 6852),
     ("lámpara", 16.42, 1459),
-    ("shampoo", 5.2, 3578),
+    ("shampoo", 5.20, 3578),
 )
 
-assert combinar_enumerate(nombre_articulos, precio_articulos, id_articulos) == respuesta
+assert combinar_enumerate(
+    nombre_articulos,
+    precio_articulos,
+    id_articulos) == respuesta
 # NO MODIFICAR - FIN
 
 
@@ -63,11 +78,14 @@ assert combinar_enumerate(nombre_articulos, precio_articulos, id_articulos) == r
 id_articulos = [6852, 1459, 3578]
 
 
-def combinar_zip(nombres: List[str], precios: List[float], ids: List[int]) -> Tuple[Any]:
+def combinar_zip(
+        nombres: List[str],
+        precios: List[float],
+        ids: List[int]) -> Tuple[Any]:
     """Re-Escribir utilizando zip.
     Referencia: https://docs.python.org/3/library/functions.html#zip
     """
-    pass # Completar
+    return tuple(zip(nombres, precios, ids))
 
 
 # NO MODIFICAR - INICIO
@@ -77,7 +95,10 @@ respuesta = (
     ("shampoo", 5.2, 3578),
 )
 
-assert combinar_zip(nombre_articulos, precio_articulos, id_articulos) == respuesta
+assert combinar_zip(
+    nombre_articulos,
+    precio_articulos,
+    id_articulos) == respuesta
 # NO MODIFICAR - FIN
 
 
@@ -93,7 +114,7 @@ def combinar_zip_args(*args) -> Tuple[Any]:
     """Re-Escribir utilizando zip y una cantidad arbitraria de componentes.
     Referencia: https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists
     """
-    pass # Completar
+    return tuple(zip(*args))
 
 
 # NO MODIFICAR - INICIO
