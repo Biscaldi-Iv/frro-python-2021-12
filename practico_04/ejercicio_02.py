@@ -14,16 +14,17 @@ def agregar_persona(nombre, nacimiento, dni, altura):
          VALUES (null, ? , ? , ? , ? )  """
     cursor.execute(cmd, (nombre, nacimiento, dni, altura))
     db.commit()
-    consulta = """SELECT idpersona, nombre, fechaNacimiento, dni, altura FROM persona WHERE nombre= ?"""
-    cursor.execute(consulta, [nombre])
+    consulta = """SELECT idpersona FROM persona WHERE nombre= ? and fechaNacimiento=? and dni=? and altura=?"""
+    cursor.execute(consulta, (nombre, nacimiento, dni, altura))
     result = cursor.fetchone()
     cursor.close()
     db.close()
-    _id, _nom, _nac, _dni, _altura = result[0], result[1], result[2], result[3], result[4]
-    return _id  # , _nom, _nac, _dni, _altura
-
+    _id = result[0]
+    return _id
 
 # NO MODIFICAR - INICIO
+
+
 @reset_tabla
 def pruebas():
     id_juan = agregar_persona(
