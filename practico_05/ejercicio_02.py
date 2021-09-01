@@ -6,57 +6,58 @@ from ejercicio_01 import Base, Socio
 
 from typing import List, Optional
 
+
 class DatosSocio():
 
     def __init__(self):
-        pass # Completar
+        self.engine = create_engine('sqlite:///my_base.db')
+        self.engine.create(Socio)
+        self.session = sessionmaker(bind=self.engine)
 
     def buscar(self, id_socio: int) -> Optional[Socio]:
         """Devuelve la instancia del socio, dado su id. Devuelve None si no 
         encuentra nada.
         """
-        pass # Completar
+        pass  # Completar
 
     def buscar_dni(self, dni_socio: int) -> Optional[Socio]:
         """Devuelve la instancia del socio, dado su dni. Devuelve None si no 
         encuentra nada.
         """
-        pass # Completar
-        
+        pass  # Completar
+
     def todos(self) -> List[Socio]:
         """Devuelve listado de todos los socios en la base de datos."""
-        pass # Completar
+        pass  # Completar
 
     def borrar_todos(self) -> bool:
         """Borra todos los socios de la base de datos. Devuelve True si el 
         borrado fue exitoso.
         """
-        pass # Completar
+        pass  # Completar
 
     def alta(self, socio: Socio) -> Socio:
         """Agrega un nuevo socio a la tabla y lo devuelve"""
-        pass # Completar
+        pass  # Completar
 
     def baja(self, id_socio: int) -> bool:
         """Borra el socio especificado por el id. Devuelve True si el borrado 
         fue exitoso.
         """
-        pass # Completar
+        pass  # Completar
 
     def modificacion(self, socio: Socio) -> Socio:
         """Guarda un socio con sus datos modificados. Devuelve el Socio 
         modificado.
         """
-        pass # Completar
-    
+        pass  # Completar
+
     def contarSocios(self) -> int:
         """Devuelve el total de socios que existen en la tabla"""
-        pass # Completar
-
+        pass  # Completar
 
 
 # NO MODIFICAR - INICIO
-
 # Test Creación
 datos = DatosSocio()
 
