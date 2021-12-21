@@ -1,7 +1,7 @@
 """Base de Datos - ORM"""
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import session, sessionmaker
 from ejercicio_01 import Base, Socio
 
 from typing import List, Optional
@@ -12,7 +12,8 @@ class DatosSocio():
     def __init__(self):
         self.engine = create_engine('sqlite:///my_base.db')
         self.engine.create(Socio)
-        self.session = sessionmaker(bind=self.engine)
+        Base.metadata.create_all(self.engine)
+        self.sessionmaker = sessionmaker(bind=self.engine)
 
     def buscar(self, id_socio: int) -> Optional[Socio]:
         """Devuelve la instancia del socio, dado su id. Devuelve None si no 
@@ -28,7 +29,11 @@ class DatosSocio():
 
     def todos(self) -> List[Socio]:
         """Devuelve listado de todos los socios en la base de datos."""
-        pass  # Completar
+        session = self.sessionmaker()
+        socios = session.query(Socio).all()
+        session.commit()
+        session.close()
+        return socios
 
     def borrar_todos(self) -> bool:
         """Borra todos los socios de la base de datos. Devuelve True si el 
@@ -38,7 +43,10 @@ class DatosSocio():
 
     def alta(self, socio: Socio) -> Socio:
         """Agrega un nuevo socio a la tabla y lo devuelve"""
-        pass  # Completar
+        session = self.sessionmaker()
+        session.add(socio)
+        session.commit()
+        session.close()
 
     def baja(self, id_socio: int) -> bool:
         """Borra el socio especificado por el id. Devuelve True si el borrado 
